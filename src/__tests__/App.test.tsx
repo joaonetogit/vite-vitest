@@ -1,8 +1,10 @@
-import '@testing-library/jest-dom';
-import { describe, expect, it } from 'vitest';
+import { render } from '@testing-library/react';
+import { describe, expect, test } from 'vitest';
+import App from '../App';
 
-describe('Renders main page correctly', async () => {
-  it('Should render the page correctly', async () => {
-    expect(true).toBeTruthy();
+describe('Renders main page correctly', () => {
+  test('Should render the page correctly', () => {
+    const { getByText } = render(<App />);
+    expect(getByText("Hey, it's working")).toBeInTheDocument();
   });
 });
